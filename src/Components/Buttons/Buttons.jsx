@@ -31,7 +31,17 @@ const Buttons = () => {
                         style={{ border: 'none', outline: 'none', marginLeft: '5px' }}
                     />
                 </div>
-                <Button onClick={handleFilter} style={{ backgroundColor: '#EBF7ED', color: 'black', borderRadius: '50%', marginLeft: '20px', cursor: 'pointer', transition: 'background-color 0.3s' }}>
+                <Button onClick={handleFilter} style={{ backgroundColor: '#EBF7ED', 
+        color: 'black', 
+        borderRadius: '50%', 
+        width: '40px', 
+        height: '40px', 
+        minWidth: '40px', 
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'center', 
+        cursor: 'pointer', 
+        transition: 'background-color 0.3s'  }}>
                     <FilterListIcon />
                 </Button>
                 <Button style={{ backgroundColor: '#2c963d', color: 'rgb(255, 255, 255)', border: 'none', padding: '10px 20px', textAlign: 'center', display: 'inline-block', fontSize: '16px', margin: '10px', cursor: 'pointer', borderRadius: '35px', transition: 'background-color 0.3s', marginLeft: '20px' }}>
