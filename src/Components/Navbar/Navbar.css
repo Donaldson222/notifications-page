@@ -1,0 +1,8 @@
+.navbar {
+    width: 20%; /* Set the width of the navbar to 20% of the screen */
+    text-align: left; /* Align text to the left */
+    float: left; /* Float the navbar to the left */
+    background-color: #061C06; /* Set text color to white for visibility */
+}
+
+
