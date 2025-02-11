@@ -7,7 +7,8 @@ import MenuItem from "@mui/material/MenuItem";
 
 const Buttons = ({ searchTerm, setSearchTerm, setFilter, unreadCount }) => {
   const [anchorEl, setAnchorEl] = useState(null);
-  const [ setSelectedFilter] = useState("All");
+const [selectedFilter, setSelectedFilter] = useState("All");
+
 
   const handleFilterClick = (event) => {
     setAnchorEl(event.currentTarget);
