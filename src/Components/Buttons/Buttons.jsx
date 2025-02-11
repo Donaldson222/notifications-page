@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 
-const Buttons = ({ searchTerm, setSearchTerm, unreadCount }) => {
+const Buttons = ({ searchTerm, setSearchTerm, setFilter, unreadCount }) => {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [ setSelectedFilter] = useState("All");
+
+  const handleFilterClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleFilterSelect = (filterOption) => {
+    setSelectedFilter(filterOption);
+    setFilter(filterOption); 
+    setAnchorEl(null);
+  };
+
   return (
     <div
       style={{
@@ -44,6 +59,8 @@ const Buttons = ({ searchTerm, setSearchTerm, unreadCount }) => {
             style={{ border: "none", outline: "none", marginLeft: "5px" }}
           />
         </div>
+
+       
         <Button
           style={{
             backgroundColor: "#EBF7ED",
@@ -58,9 +75,19 @@ const Buttons = ({ searchTerm, setSearchTerm, unreadCount }) => {
             cursor: "pointer",
             transition: "background-color 0.3s",
           }}
+          onClick={handleFilterClick}
         >
           <FilterListIcon />
         </Button>
+
+       
+        <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={() => setAnchorEl(null)}>
+          <MenuItem onClick={() => handleFilterSelect("All")}>All</MenuItem>
+          <MenuItem onClick={() => handleFilterSelect("Unread")}>Unread</MenuItem>
+          <MenuItem onClick={() => handleFilterSelect("Read")}>Read</MenuItem>
+          <MenuItem onClick={() => handleFilterSelect("Fuel")}>Fuel</MenuItem>
+        </Menu>
+
         <Button
           style={{
             marginLeft: "20px",
